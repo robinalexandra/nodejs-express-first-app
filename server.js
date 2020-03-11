@@ -4,9 +4,12 @@ const bodyParser = require("body-parser");
 const UserService = require("./services/UserService");
 const userService = new UserService("./data/users.json");
 
+const LoginService = require("./services/LoginService");
+const loginService = new LoginService("./data/login.json");
+
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(bodyParser.json());
 
@@ -17,6 +20,10 @@ app.get("/", (req, res) => {
 // Get all users
 app.get("/users", async (req, res, next) => {
   try {
+    const logStatus = await loginService.login(req);
+    if (logStatus.code == 401) {
+      return res.status(logStatus.code).send(logStatus.message);
+    }
     const users = await userService.getUsers();
     if (!users || !users.length)
       return res.status(200).send("No user in database");
