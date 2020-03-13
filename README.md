@@ -1,16 +1,31 @@
 # nodejs-express-first-app
 
+### Install dependencies
+
+```
+npm install express
+npm install express-basic-auth
+npm install body-parser
+```
+
 ### Run the app
-``` node server.js ```
+
+`node server.js`
+
 ### Request URL
-``` localhost:3000 ```
+
+`localhost:3000`
 
 ## API
 
 ### Get all users
+
 ##### Request
-``` GET /users ```
+
+`GET /users`
+
 ##### Response
+
 ```
 [
   {
@@ -22,8 +37,11 @@
 ```
 
 ### Add a new user
+
 ##### Request
-``` POST /users ```
+
+`POST /users`
+
 ```
 {
   "id": "1",
@@ -31,33 +49,45 @@
   "enterprise": "SAP"
 }
 ```
+
 ##### Response
-``` User Test (#1) was successfully added ```
+
+`User Test (#1) was successfully added`
 
 ### Get user data
-##### Request
-``` GET /users/:id ```
-##### Response
-``` Alex (#0) works at SAP ```
 
-``` No entry found for id 234689 ```
+##### Request
+
+`GET /users/:id`
+
+##### Response
+
+`Alex (#0) works at SAP`
+
+`No entry found for user id #234689`
 
 ### Update user data
+
 ##### Request
-``` POST /users/:id ```
+
+`POST /users/:id`
+
 ```
 {
-  "name": "Alexandra",
-  "enterprise": "SAP Labs France"
+  "name": "John",
+  "enterprise": "SAP"
 }
 ```
-##### Response
-``` User Alexandra (#0) was successfully updated ```
 
-``` No user #234689 found ```
+##### Response
+
+`User Alexandra (#0) was successfully updated`
+
+`No user #234689 found`
 
 ## TODO
+
 - [x] GET request
 - [x] POST request
-- [ ] Authentication
+- [x] Authentication
 - [ ] \(Optional) Validation
